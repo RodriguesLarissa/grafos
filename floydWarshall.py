@@ -1,5 +1,3 @@
-# Matriz de distancias
-
 quantidade_vertices, quantidade_arcos = (int(tmp) for tmp in input().split(" "))
 vetor_conexoes = [{} for _ in range(quantidade_vertices)]
 grafo = [[[float('inf')] * quantidade_vertices for _ in range(quantidade_vertices)] for _ in range(quantidade_vertices+1)]
