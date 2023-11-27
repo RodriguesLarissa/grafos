@@ -6,6 +6,7 @@ quantidade_vertices, quantidade_arcos, vertice_inicial = (int(tmp) for tmp in in
 vetor_conexoes = [{} for _ in range(quantidade_vertices)]
 vetor_distancias = [0] * quantidade_vertices
 vetor_concluidos = [0] * quantidade_vertices
+vetor_caminho = [-1] * quantidade_vertices
 
 for i in range(quantidade_arcos):
     vertice_origem, vertice_destino, peso = (int(tmp) for tmp in input().split(" "))
@@ -21,7 +22,8 @@ while not all(elemento == 1 for elemento in vetor_concluidos):
     for vertice in vetor_conexoes[vertice_minimo]:
         if vetor_distancias[vertice_minimo] + vetor_conexoes[vertice_minimo][vertice] < vetor_distancias[vertice]:
             vetor_distancias[vertice] = vetor_distancias[vertice_minimo] + vetor_conexoes[vertice_minimo][vertice]
+            vetor_caminho[vertice] = vertice_minimo
         vetor_concluidos[vertice_minimo] = 1
 
 print(vetor_distancias)
-print(vetor_concluidos)
+print(vetor_caminho)
